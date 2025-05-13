@@ -34,3 +34,8 @@ document.querySelectorAll('.dropdown-toggle')?.forEach(drop => {
         }
     });
 });
+// if (!sessionStorage.getItem("hasReloaded")) {
+//     sessionStorage.setItem("hasReloaded", "true");
+//     location.reload();
+// }
+

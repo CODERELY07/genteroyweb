@@ -1,10 +1,8 @@
 <?php
 session_start();
+include('./unset.php');
 include("connect.php");
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

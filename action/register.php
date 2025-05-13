@@ -9,12 +9,26 @@
         $email     = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
         $password  = trim($_POST['password']);
 
-        if(empty($firstname) || empty($lastname) || empty($email) || $password){
-            $_SESSION['message'] = "Please Fill UP Filled";
+
+       
+        if(empty($firstname) || empty($lastname) || empty($email)){
+            $_SESSION['message_error'] = "Please Fill UP Filled";
             header("Location: ./../register.php");
             exit();
         }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            die("Invalid email format.");
+            $_SESSION['message_error'] = "Invalid Email Address";
+            header("Location: ./../register.php");
+            exit();
+        }
+
+        if(empty($password)){
+             $_SESSION['message_error'] = "Password is required";
+            header("Location: ./../register.php");
+            exit();
+        }elseif(strlen(trim($password)) < 6){
+            $_SESSION['message_error'] = "Passowrd must consist of 6 letters";
+            header("Location: ./../register.php");
+            exit();
         }
 
         // Hash password
@@ -27,14 +41,18 @@
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            echo "Email already registered.";
+            $_SESSION['message_error'] = "Email already registered.";
+            header("Location: ./../register.php");
+            exit();
         } else {
             $stmt->close();
             $stmt = $conn->prepare("INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("ssss", $firstname, $lastname, $email, $hashed_password);
 
             if ($stmt->execute()) {
-                echo "Signup successful!";
+                $_SESSION['message_success'] = "Signup successful!";
+                header("Location: ./../register.php");
+                exit();
             } else {
                 echo "Error: " . $stmt->error;
             }
@@ -43,5 +61,5 @@
         $stmt->close();
         $conn->close();
     }
-
+   
 ?>
