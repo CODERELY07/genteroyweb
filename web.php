@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?<?php echo time()?>">
 
 </head>
 <body>
@@ -38,7 +39,7 @@
                     <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <a href="#contact" class="link-btn text-white">Book Workshop</a>
+                <a href="#book" class="link-btn text-white">Book Workshop</a>
             </div>
 
         </nav>
@@ -48,15 +49,16 @@
 
         <section class="home" id="home">
 
-            <div class="container">
+            <div class="container-fluid header-banner">
 
-                <div class="row min-vh-100 align-items-center">
+                <div class="row min-vh-100 justify-content-center align-items-center">
 
                     <div class="content text-center text-md-left">
-                        <h3><b>Code & Circuits: A Computer <br>Engineering Workshop</b></h3>
+                        <h3 class="color-blue"><b>Code & Circuits: A Computer <br>Engineering Workshop</b></h3>
                         <p>Join us to unlock the world of embedded systems, digital logic, and <br> the innovation that powers today’s smart technology. Get ready to think <br> like an engineer, create like a developer, and build the future from the ground up.</p>
                         <a href="#contact" class="link-btn">Book Workshop</a>
                     </div>
+        
 
                 </div>
                 
@@ -228,7 +230,7 @@
         <!--team section ends-->
 
         <!---contact section starts-->
-        <section class="contact" id="contact">
+        <section class="contact" id="book">
 
             <h1 class="heading">book workshop</h1>
 
@@ -254,7 +256,7 @@
 
         <section class="footer">
 
-            <div class="box-container container">
+            <div class="box-container container" id="contact">
 
                 <div class="box">
                    <i class="fas fa-phone"></i>
@@ -284,7 +286,7 @@
 
             </div>
 
-            <div class="credit"> &copy; copyright @ <?php echo date() 'Y'?> by <span>Ms. Riben Genteroy</span></div>
+            <div class="credit"> &copy; copyright @ <?php echo date('Y');?> by <span>Ms. Riben Genteroy</span></div>
 
         </section>
 

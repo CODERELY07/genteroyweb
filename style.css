@@ -44,7 +44,9 @@ html{
 section{
     padding: 7rem 2rem;
 }
-
+section.home{
+    padding: 0 !important;
+}
 .link-btn{
     display: inline-block;
     padding: 1rem 3rem;
@@ -272,4 +274,10 @@ section{
 
 .footer .credit span{
     color: var(--green);
+}
+.header-banner{
+    background: url('https://www.cioinsight.com/wp-content/uploads/2022/08/Chatbots-in-Machine-Learning-2048x1365.jpeg') !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
