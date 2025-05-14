@@ -1,6 +1,11 @@
 <?php 
 
   include('./includes/head.php');
+
+  if (isset($_SESSION['user_id'])) {
+    header("Location: ./web.php");
+    exit();
+  }
 ?>
   <main>
     <div class="container" id="signup">

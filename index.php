@@ -1,6 +1,15 @@
-<?php include('./includes/head.php');?>
+<?php 
+
+  include('./includes/head.php');
+
+  if (isset($_SESSION['user_id'])) {
+      header("Location: ./web.php");
+      exit();
+  }
+?>
   <main>
       <div class="container" id="signIn">
+      <?php include('./util/alert.php')?>
       <div class="flex items-center space-x-4">
         <img src="images/logo.png" alt="Institute Logo" class="w-40 h-16 object-contain" />
         <p class="text-gray-700 font-medium text-md">
@@ -9,7 +18,8 @@
         </p>
       </div>
         <h1 class="form-title"><b>Login</b></h1>
-        <form method="post" action="register.php">
+        <form method="POST" action="./action/login.php">
+         
           <div class="input-group">
               <i class="fas fa-envelope"></i>
               <input type="email" name="email" id="email" placeholder="Email" required>
@@ -25,7 +35,7 @@
           <p class="recover">
             <a href="#">Recover Password</a>
           </p>
-          <input type="submit" class="btn" value="Login" name="signIn"><br><br><br>
+          <input type="submit" class="btn" value="Login" name="login"><br><br><br>
         </form>
         <div class="links">
           <p>Don't have account yet?</p>
